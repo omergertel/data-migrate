@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-if Rails::VERSION::MAJOR >= 5
+if ActiveRecord::VERSION::MAJOR >= 5
   subject = DataMigrate::MigrationFive
 else
   subject = DataMigrate::Migration
