@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe DataMigrate::SchemaMigration do
   let(:migration_path) {
-    if Rails::VERSION::MAJOR == 6
+    if ActiveRecord::VERSION::MAJOR == 6
       "spec/db/migrate/6.0"
-    elsif Rails::VERSION::MAJOR == 5
-      if Rails::VERSION::MINOR == 2
+    elsif ActiveRecord::VERSION::MAJOR == 5
+      if ActiveRecord::VERSION::MINOR == 2
         "spec/db/migrate/5.2"
       else
         "spec/db/migrate/5.0"

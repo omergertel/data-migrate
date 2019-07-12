@@ -1,5 +1,5 @@
 require 'rspec'
-require 'rails'
+require 'active_record'
 require 'sqlite3'
 require 'data_migrate'
 require 'pry'
@@ -13,12 +13,12 @@ RSpec.configure do |config|
   config.before(:each) do |example|
     if example.metadata[:no_override]
     else
-      if Rails::VERSION::MAJOR == 6
+      if ActiveRecord::VERSION::MAJOR == 6
         DataMigrate.configure do |config|
           config.data_migrations_path = "spec/db/6.0"
         end
-      elsif Rails::VERSION::MAJOR == 5
-        if Rails::VERSION::MINOR == 2
+      elsif ActiveRecord::VERSION::MAJOR == 5
+        if ActiveRecord::VERSION::MINOR == 2
           DataMigrate.configure do |config|
             config.data_migrations_path = "spec/db/data"
           end
